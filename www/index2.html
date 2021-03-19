@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script|Herr+Von+Muellerhoff' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700' rel='stylesheet' type='text/css'>
+
+  <title>March Madness Stock Matchup</title>
+</head>
+<body>
+  <header class="hero">
+    <style>
+      body {font-family: 'Istok Web', sans-serif;background: url("http://picjumbo.com/wp-content/uploads/HNCK2189-1300x866.jpg") no-repeat #e1e1e1;background-size: cover;min-height: 100%;margin: 0;}
+.hero {position:relative; text-align: center; overflow: hidden; color: #fcfcfc; }
+.hero h1 {font-family: 'Holtwood One SC', serif;font-weight: normal;font-size: 5.4em;margin:0 0 20px; text-shadow:0 0 12px rgba(0, 0, 0, 0.5);text-transform: uppercase;letter-spacing:-1px;}
+.hero h2 {font-family: 'Holtwood One SC', serif;font-weight: bold;font-size: 3.4em;margin:0 0 20px; text-shadow:0 0 12px rgba(0, 0, 0, 0.5);text-transform: uppercase;letter-spacing:-1px;}
+.hero p {font-family: 'Abel', sans-serif;text-transform: uppercase; color: #5c88ca; letter-spacing: 6px;text-shadow:0 0 12px rgba(0, 0, 0, 0.5);font-size: 1.2em;}
+.hero-wrap {padding: 1.5em 5px;}
+.hero p.intro {font-family: 'Holtwood One SC', serif;text-transform: uppercase;letter-spacing: 1px;font-size: 3em;margin-bottom:-40px;}
+.hero p.year {color: #fff; letter-spacing: 20px; font-size: 34px; margin: -25px 0 25px;}
+.hero p.year i {font-size: 14px;vertical-align: middle;}
+#bracket {overflow:hidden;background-color: #fff;background-color:rgba(225,225,225,0.9);padding-top: 5px;font-size: 12px;padding: 10px 0;}
+.container {max-width: 1100px;margin: 0 auto;display:block;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: -webkit-flex;display: flex;-webkit-flex-direction:row;flex-direction: row;}
+.split {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;width: 42%;-webkit-flex-direction:row;-moz-flex-direction:row;flex-direction:row;}
+.champion {float:left;display:block;width: 16%;-webkit-flex-direction:row;flex-direction:row;-webkit-align-self:center;align-self:center;margin-top: -15px;text-align: center;padding: 230px 0\9;} 
+.champion i {color: #a0a6a8; font-size: 45px;padding: 10px 0; }
+.round {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;width:95%;width:30.8333%\9;}
+.split-two {}
+.split-one .round {margin: 0 2.5% 0 0;}
+.split-two .round {margin: 0 0 0 2.5%;}
+.matchup {margin:0;width: 100%;padding: 10px 0;height:60px;-webkit-transition: all 0.2s;transition: all 0.2s;}
+.score.left {font-size: 11px;text-transform: uppercase;float: left;color: #5c88ca;font-weight: bold;font-family: 'Roboto Condensed', sans-serif;position: absolute;left: 5px;}
+.team {padding: 0 5px;margin: 3px 0px 3px 10px;height: 25px; line-height: 25px;white-space: nowrap; overflow: hidden;position: relative;}
+.round-two .matchup {margin:0; height: 60px;padding: 50px 0;}
+.round-three .matchup {margin:0; height: 60px; padding: 130px 0;}
+.round-details {font-family: 'Roboto Condensed', sans-serif; font-size: 13px; color: #5c88ca;text-transform: uppercase;text-align: center;height: 40px;}
+.champion li, .round li {background-color: #fff;box-shadow: none; opacity: 1;}
+.current li {opacity: 1;}
+.current li.team {background-color: #fff;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);opacity: 1;}
+.vote-options {display: block;height: 52px;}
+.share .container {margin: 0 auto; text-align: center;}
+.share-icon {font-size: 24px; color: #fff;padding: 25px;}
+.share-wrap {max-width: 1100px; text-align: center; margin: 60px auto;}
+.final {margin: 2em 0;}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.img2{
+  width: 50px;
+  height: 50px;
+  display:block;
+  margin-left: auto;
+  margin-right: 60px;
+}
+.champimg{
+    float: right;
+    position: relative;
+    left: -50%;
+    width: 50px;
+    height: 50px;
+}
+
+img{
+  width: 25px;
+  height: 25px;
+  float: right;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.share-icon {color: #fff; opacity: 0.35; }
+.share-icon:hover { opacity:1;  -webkit-animation: pulse 0.5s; animation: pulse 0.5s;}
+.date {font-size: 10px; letter-spacing: 2px;font-family: 'Istok Web', sans-serif;color:#878787;}
+
+
+
+@media screen and (min-width: 981px) and (max-width: 1099px) {
+  .container {margin: 0 1%;}
+  .champion {width: 14%;}
+  .split {width:43%; }
+  .split-one .vote-box {margin-left: 138px;}
+  .hero p.intro {font-size: 28px;}
+  .hero p.year {margin: 5px 0 10px;}
+
+}
+
+@media screen and (max-width: 980px) {
+  .container {-webkit-flex-direction:column;-moz-flex-direction:column;flex-direction:column;}
+  .split, .champion {width: 90%;margin: 35px 5%;}
+  .champion {-webkit-box-ordinal-group:3;-moz-box-ordinal-group:3;-ms-flex-order:3;-webkit-order:3;order:3;}
+  .split {border-bottom: 1px solid #b6b6b6; padding-bottom: 20px;}
+  .hero p.intro {font-size: 24px;}
+  .hero h1 {font-size: 3em; margin: 15px 0;}
+  .hero p {font-size: 1em;}
+}
+
+
+@media screen and (max-width: 400px) {
+
+  .split {width: 95%;margin: 25px 2.5%;}
+  .round {width:21%;}
+  .current {-webkit-flex-grow:1;-moz-flex-grow:1;flex-grow:1;}
+  .hero h1 {font-size: 2.15em; letter-spacing: 0;margin:0; }
+  .hero p.intro {font-size: 1.15em;margin-bottom: -10px;}
+  .round-details {font-size: 90%;}
+  .hero-wrap {padding: 2.5em;}
+  .hero p.year {margin: 5px 0 10px; font-size: 18px;}
+
+}
+    </style>
+    <div class="hero-wrap">
+     <p class="intro" id="intro">NCAA Men's</p>
+     <br>
+     <h1 id="headline">March Madness</h1>
+     <p class="year"><i class="fa fa-star"></i> 2021 <i class="fa fa-star"></i></p>
+     <br>
+     <p>National Champion 
+     <br>
+     </p>
+     <h2><shiny-text-output id="R6CH" class="shiny-text-output"></shiny-text-output></h2>
+   </div>
+  </header>
+  <section id="bracket">
+  <div class = "container">
+  <div class = "split split-one">
+    <div class = "round round-one current">
+      <div class="round-details">First Four<br/><span class="date">East</span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">11</span><shiny-text-output id="PI161" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="PI161img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">11</span><shiny-text-output id="PI162" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="PI162img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+    </div>
+    <div class = "round round-one current">
+      <div class="round-details">First Four<br/><span class="date">East</span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">16</span><shiny-text-output id="PI163" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="PI163img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">16</span><shiny-text-output id="PI164" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="PI164img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+    </div>
+  </div>
+  <div class="champion">
+    </div>
+  <div class = "split split-two">
+  <div class = "round round-one current">
+      <div class="round-details">First Four<br/><span class="date">West</span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">11</span><shiny-text-output id="PI111" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="PI111img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">11</span><shiny-text-output id="PI112" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="PI112img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+  </div>
+  <div class = "round round-one current">
+      <div class="round-details">First Four<br/><span class="date">West</span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">16</span><shiny-text-output id="PI113" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="PI113img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">16</span><shiny-text-output id="PI114" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="PI114img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+  </div>
+  </div>
+  </div>
+  <br>
+  <div class="container">
+  <div class="split split-one">
+    <div class="round round-one current">
+      <div class="round-details">East<br/><span class="date"></span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">1</span><shiny-text-output id="E1" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E1img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">16</span><shiny-text-output id="E16" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E16img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">8</span><shiny-text-output id="E8" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E8img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">9</span><shiny-text-output id="E9" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E9img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">5</span><shiny-text-output id="E5" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E5img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">12</span><shiny-text-output id="E12" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E12img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">4</span><shiny-text-output id="E4" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E4img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">13</span><shiny-text-output id="E13" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E13img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>     
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">6</span><shiny-text-output id="E6" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E6img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">11</span><shiny-text-output id="E11" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E11img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">3</span><shiny-text-output id="E3" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E3img" class="shiny-html-output"></shiny-html-output></li>
+       <li class="team team-bottom"><span class="score left">14</span><shiny-text-output id="E14" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E14img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">7</span><shiny-text-output id="E7" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E7img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">10</span><shiny-text-output id="E10" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E10img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">2</span><shiny-text-output id="E2" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="E2img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">15</span><shiny-text-output id="E15" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="E15img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>                   
+    </div>  <!-- END ROUND ONE -->
+
+    <div class="round round-one current">
+      <div class="round-details">South<br/><span class="date"></span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">1</span><shiny-text-output id="S1" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S1img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">16</span><shiny-text-output id="S16" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S16img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">8</span><shiny-text-output id="S8" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S8img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">9</span><shiny-text-output id="S9" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S9img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">5</span><shiny-text-output id="S5" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S5img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">12</span><shiny-text-output id="S12" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S12img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">4</span><shiny-text-output id="S4" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S4img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">13</span><shiny-text-output id="S13" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S13img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>     
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">6</span><shiny-text-output id="S6" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S6img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">11</span><shiny-text-output id="S11" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S11img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">3</span><shiny-text-output id="S3" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S3img" class="shiny-html-output"></shiny-html-output></li>
+       <li class="team team-bottom"><span class="score left">14</span><shiny-text-output id="S14" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S14img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">7</span><shiny-text-output id="S7" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S7img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">10</span><shiny-text-output id="S10" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S10img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">2</span><shiny-text-output id="S2" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="S2img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">15</span><shiny-text-output id="S15" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="S15img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>                   
+    </div>  <!-- END ROUND TWO -->
+  </div> 
+
+<div class="champion">
+    <div class="semis-l">
+      <div class="round-details">Final Four <br/><span class="date">Indianapolis</span></div>   
+      <ul class ="matchup">
+        <li class="team team-top"><span class="score left"></span><shiny-text-output id="R4X1" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="R4X1img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left"></span><shiny-text-output id="R4W1" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="R4W1img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+    </div>
+    <div class="final">
+        <div class="round-details">championship <br/><span class="date">Indianapolis</span></div>    
+          <ul class ="matchup">
+            <li class="team team-top"><span class="score left"></span><shiny-text-output id="R5WX" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="R5WXimg" class="shiny-html-output"></shiny-html-output></li>
+            <li class="team team-bottom"><span class="score left"></span><shiny-text-output id="R5YZ" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="R5YZimg" class="shiny-html-output"></shiny-html-output></li>
+          </ul>
+    </div>
+    <div class="semis-r">   
+      <div class="round-details">Final Four<br/><span class="date">Indianapolis</span></div>   
+      <ul class ="matchup">
+        <li class="team team-top"><span class="score left"></span><shiny-text-output id="R4Y1" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="R4Y1img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left"></span><shiny-text-output id="R4Z1" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="R4Z1img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+    </div>  
+  </div>
+
+
+  <div class="split split-two">
+    
+    
+    <div class="round round-one current">
+      <div class="round-details">Midwest<br/><span class="date"></span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">1</span><shiny-text-output id="MW1" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW1img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">16</span><shiny-text-output id="MW16" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW16img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">8</span><shiny-text-output id="MW8" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW8img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">9</span><shiny-text-output id="MW9" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW9img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">5</span><shiny-text-output id="MW5" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW5img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">12</span><shiny-text-output id="MW12" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW12img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">4</span><shiny-text-output id="MW4" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW4img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">13</span><shiny-text-output id="MW13" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW13img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>     
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">6</span><shiny-text-output id="MW6" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW6img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">11</span><shiny-text-output id="MW11" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW11img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">3</span><shiny-text-output id="MW3" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW3img" class="shiny-html-output"></shiny-html-output></li>
+       <li class="team team-bottom"><span class="score left">14</span><shiny-text-output id="MW14" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW14img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">7</span><shiny-text-output id="MW7" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW7img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">10</span><shiny-text-output id="MW10" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW10img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">2</span><shiny-text-output id="MW2" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="MW2img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">15</span><shiny-text-output id="MW15" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="MW15img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>                   
+    </div>
+    <div class="round round-one current">
+      <div class="round-details">West<br/><span class="date"></span></div>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">1</span><shiny-text-output id="W1" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W1img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">16</span><shiny-text-output id="W16" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W16img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">8</span><shiny-text-output id="W8" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W8img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">9</span><shiny-text-output id="W9" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W9img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">5</span><shiny-text-output id="W5" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W5img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">12</span><shiny-text-output id="W12" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W12img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">4</span><shiny-text-output id="W4" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W4img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">13</span><shiny-text-output id="W13" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W13img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>     
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">6</span><shiny-text-output id="W6" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W6img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">11</span><shiny-text-output id="W11" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W11img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">3</span><shiny-text-output id="W3" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W3img" class="shiny-html-output"></shiny-html-output></li>
+       <li class="team team-bottom"><span class="score left">14</span><shiny-text-output id="W14" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W14img" class="shiny-html-output"></shiny-html-output></li>
+      </ul> 
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">7</span><shiny-text-output id="W7" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W7img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">10</span><shiny-text-output id="W10" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W10img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>
+      <ul class="matchup">
+        <li class="team team-top"><span class="score left">2</span><shiny-text-output id="W2" class="shiny-text-output team team-top"></shiny-text-output><shiny-html-output id="W2img" class="shiny-html-output"></shiny-html-output></li>
+        <li class="team team-bottom"><span class="score left">15</span><shiny-text-output id="W15" class="shiny-text-output team team-bottom"></shiny-text-output><shiny-html-output id="W15img" class="shiny-html-output"></shiny-html-output></li>
+      </ul>                   
+    </div>               
+  </div>
+  </div>
+  </section>
+  <section class="share">
+      <div class="share-wrap">
+        <a class="share-icon" href="https://www.linkedin.com/in/conor-mcgrath-/"><i class="fa fa-linkedin"></i></a>
+        <a class="share-icon" href="https://github.com/Conor-McGrath"><i class="fa fa-github"></i></a>
+        <a class="share-icon" href="mailto: cmcgrat3@nd.edu"><i class="fa fa-envelope"></i></a>
+      </div>
+  </section>
