@@ -1,5 +1,11 @@
 library(tidyverse)
 library(rvest)
+library(plyr)
+library(XML)
+library(RCurl)
+library(rvest)
+library(dplyr)
+library(stringr)
 
 webpage <- read_html("https://www.cbssports.com/college-basketball/bracketology/")
 table <- html_nodes(webpage, xpath = '//*[@id="page-content"]/div/div/div[2]/div/div/div[1]/div/div/div[1]/div/div/div[1]/div/div[2]/section/div[1]')
@@ -7,9 +13,6 @@ colleges <- html_table(xml_child(xml_child(xml_child(table[[1]], 1), 3), 3), fil
 
 # Get rid of team records in the parentheses.
 # Scrape team logos
-library(XML)
-library(RCurl)
-library(rvest)
 
 images_html <- read_html("https://www.cbssports.com/college-basketball/bracketology/")
 images <- images_html %>% 
@@ -33,8 +36,7 @@ MTeamSpellings <- read.csv("data/MTeamSpellings.csv")
 MTeamSpellings <- MTeamSpellings %>%
   mutate(TeamNameSpelling = str_to_title(TeamNameSpelling))
 
-library(dplyr)
-library(stringr)
+
 colleges_w_images <- colleges_w_images %>%
   mutate(Team = str_to_title(Team))%>%
   mutate(Team = if_else(Team == "Okla. St.", "Oklahoma State", Team))%>%
@@ -66,7 +68,6 @@ library(collegehoops)
 options(repr.plot.width = 14, repr.plot.height = 8)
 bracket = collegehoops::parse_bracket("data/preds_to_send.csv", year = '2021')
 outcomes <- full_join(colleges, bracket, by=c("TeamID" = "winner"))
-library(plyr)
 outcomes <- rbind.fill(outcomes, colleges)
 outcomes <- outcomes %>%
   distinct()

@@ -14,7 +14,9 @@ shinyUI(fluidPage(navbarPage("Kaggle March Mania Bracket", id = "myNavbarPage", 
      border: none;
      text-align: center;
      font-weight: bold;
-   }')))
+   }'))),
+                                      fileInput("csv", "Choose CSV File", accept = ".csv"),
+                                      checkboxInput("header", "Header", TRUE)
                               
                                       ),
                              tabPanel("Bracket", includeHTML("www/index2.html"))
